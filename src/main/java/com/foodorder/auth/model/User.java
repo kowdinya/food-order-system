@@ -22,16 +22,16 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-   private  Long id;
-    @Column(name = "username",nullable = false)
+    private Long id;
+    @Column(name = "username", nullable = false)
     private String username;
-    @Column(name="email",nullable = false,unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
-    @Column(name = "password",nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column(name ="role", nullable = false)
+    @Column(name = "role", nullable = false)
     private Role role;
 
     @Override
@@ -52,14 +52,5 @@ public class User implements UserDetails {
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-    @Override
-    public String getUsername() {
-        return email;
     }
 }
